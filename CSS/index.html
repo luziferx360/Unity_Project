@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://getbootstrap.com/examples/navbar/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+            <meta charset="UTF-8" />
+        <title>Hello phaser!</title>
+        <script src="//cdn.jsdelivr.net/phaser/2.5.0/phaser.min.js"></script>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="/CSS/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="/CSS/navbar.css" rel="stylesheet">
+    <script src="/CSS/ie-emulation-modes-warning.js"></script>
+    <script src="/CSS/clipboard.min.js"></script>
+     <script>
+    var btn = document.getElementById('btn');
+    var clipboard = new Clipboard(btn);
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+    </script>
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://getbootstrap.com/examples/navbar/#">Train Operation</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="http://getbootstrap.com/examples/navbar/#">Home</a></li>
+              <li><a href="http://getbootstrap.com/examples/navbar/#">About</a></li>
+              <li><a href="pathing.html">Waveform</a></li>
+              <li class="dropdown">
+                <a href="http://getbootstrap.com/examples/navbar/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Etc <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="http://getbootstrap.com/examples/navbar/#">Action</a></li>
+                  <li><a href="http://getbootstrap.com/examples/navbar/#">Another action</a></li>
+                  <li><a href="http://getbootstrap.com/examples/navbar/#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li><a href="http://getbootstrap.com/examples/navbar/#">Separated link</a></li>
+                  <li><a href="http://getbootstrap.com/examples/navbar/#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="http://getbootstrap.com/examples/navbar/">1 <span class="sr-only">(current)</span></a></li>
+              <li><a href="http://getbootstrap.com/examples/navbar-static-top/">2</a></li>
+              <li><a href="http://getbootstrap.com/examples/navbar-fixed-top/">3</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="container">
+       <div class="col-md-7">
+       <!-- <div class="embed-responsive embed-responsive-4by3"><iframe src="phaser/test/part9.html" scrolling="yes"></iframe> -->
+       <h2>Hover Rows</h2>
+  <p>The .table-hover class enables a hover state on table rows:</p>            
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>PAGE</th>
+        <th>Purpose</th>
+        <th>URL</th>
+        <th>Copy!</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td><button class="btn" data-clipboard-text="3">Copy</button></td>
+</button>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <div class="col-md-3"><div class="form-group has-success has-feedback">
+  <div class="page-header">
+  <h3>Timetable <br> <small>Train's Timetable goes here</small></h3>
+</div>
+<table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Station</th>
+        <th>TRX0</th>
+        <th>TRX1</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Station 1</td>
+        <td>11:00</td>
+        <td>12:00</td>
+      </tr>
+      <tr>
+        <td>Station 2</td>
+        <td>16:00</td>
+        <td>17:00</td>
+      </tr>
+      <tr>
+        <td>Station 3</td>
+        <td>19:00</td>
+        <td>21:00</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="page-header">
+  <h3>Notification</h3>
+  <p><b>Track Info Example : AB01A002 </b><br> AB  : Station A to B <br> 01A : Section 01 Line A (Main Line) <br> 002 : Track 002</p>
+ <div> 
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Track No.</th>
+        <th>Condition</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AB01A002</td>
+        <td>Broken</td>
+        <td>Critical</td>
+      </tr>
+      <tr>
+        <td>CD02B001</td>
+        <td>Broken</td>
+        <td>Pending</td>
+      </tr>
+      </tbody>
+  </table>
+</div>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+    60%
+  </div>
+</div>
+
+
+</div></div>
+      
+
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Navbar Template for Bootstrap_files/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="./Navbar Template for Bootstrap_files/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./Navbar Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
+  
+
+</body></html>
