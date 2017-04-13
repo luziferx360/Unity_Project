@@ -1,8 +1,8 @@
 <?php
-$servername = "mysql.hostinger.in.th";
-$username = "u478022303_gap";
-$password = "741456963";
-$dbname = "u478022303_unity";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "unity";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -81,20 +81,31 @@ if (mysqli_connect_errno($conn)) {
       </nav>
       </div> <!--/.nav bar end -->
     <div class="container">
-      <div class="col-md-7">        
+      <div class="col-md-4">        
         <div class="page-header">
           <h2>Database Connector<br><small>About this page</small></h2>
         </div>
-          <p>This page is for providing information between MySQL database and Unity<br></p></div>
-      <div class="col-md-4 col-md-offset-1">      
+          <p>This page is for providing information between <br>MySQL database and Unity</p>
+          </div>
+      <div class="col-md-4">      
         <div class="page-header">
-          <h2>Database Information<br><small>Our database information</small></h2>
+          <h2>FTP Information<br><small>Server FTP Information</small></h2>
+        </div>
+          <p>
+          <b>FTP Host : </b>31.170.167.165
+          <br><b>FTP Username : </b>u478022303
+          <br><b>FTP Password : </b>Contact me
+          <br><b>FTP Port : </b>21</p>
+      </div>
+      <div class="col-md-4">      
+        <div class="page-header">
+          <h2>Database Information<br><small>Server DB Information</small></h2>
         </div>
           <p><?php
                 echo "<b>Database Host : </b>".$servername."<br>";
-                echo "<b>Database Name : </b>".$dbname."<br>";
                 echo "<b>Database Username : </b>".$username."<br>";
                 echo "<b>Database Password : </b>Contact me<br>";
+                echo "<b>Database Name : </b>".$dbname."<br>";
               ?>    
           </p>
       </div>
@@ -115,7 +126,7 @@ if (mysqli_connect_errno($conn)) {
                 <th>Function</th>
                 <th>Purpose</th>
                 <th>URL</th>
-                <th>COPY!</th>
+                <th>Copy to clipboard</th>
               </tr>
           </thead>
           <tbody>
@@ -123,19 +134,19 @@ if (mysqli_connect_errno($conn)) {
               <td>Track</td>
               <td>Show track database information</td>
               <td id="case1"><a>http://unityproject.96.lt/backend/track.php</a></td>
-              <td><button class="btn btn-default" type="button" data-clipboard-action="copy" data-clipboard-target="#case1">Copy!</button></td>
+              <td><button class="btn btn-default" type="button" data-clipboard-action="copy" data-clipboard-target="#case1">Copy</button></td>
             </tr>
             <tr>
               <td>Train</td>
               <td>Show train database information</td>
               <td id="case2"><a>http://unityproject.96.lt/backend/train.php</a></td>
-              <td><button class="btn btn-default" type="button" data-clipboard-action="copy" data-clipboard-target="#case2">Copy!</button></td>
+              <td><button class="btn btn-default" type="button" data-clipboard-action="copy" data-clipboard-target="#case2">Copy</button></td>
             </tr>
             <tr>
               <td>Update</td>
               <td>Update when train through each track</td>
               <td id="case3"><a>http://unityproject.96.lt/backend/update.php</a></td>
-              <td><button class="btn btn-default" type="button" data-clipboard-action="copy" data-clipboard-target="#case3">Copy!</button></td>
+              <td><button class="btn btn-default" type="button" data-clipboard-action="copy" data-clipboard-target="#case3">Copy</button></td>
             </tr>
           </tbody>
           </table>

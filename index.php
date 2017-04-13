@@ -1,8 +1,8 @@
 <?php
-$servername = "mysql.hostinger.in.th";
-$username = "u478022303_gap";
-$password = "741456963";
-$dbname = "u478022303_unity";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "unity";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -79,16 +79,76 @@ if (mysqli_connect_errno($conn)) {
             <br>
 
       <div class="page-header">
-          <h1>Placeholder<br>
+          <h1>Simulator Test<br>
           <small>Place holder for our simulator</small>
           </h1>
-        </div>
-    </div>
+      </div>
+  <table class="table table-bordered">
+   <?php
+
+    $sql = "SELECT id, color, bootstrap FROM track";
+    $result=mysqli_query($conn, $sql);
+    $i=1;
+    $j=1;
+    $trackcolor[$j] = "";
+    while($row=mysqli_fetch_assoc($result))
+    {
+        $id[$i] = $row['id'];
+        $color[$i] = $row['color'];
+        $trackcolor[$i] = $row['bootstrap'];
+        $i++;
+    }
+
+echo "
+    <tr>
+    <td></td>
+    <td ".$trackcolor[1].">".$id[1]."</td> 
+    <td ".$trackcolor[2]."'>".$id[2]."</td> 
+    <td ".$trackcolor[3].">".$id[3]."</td> 
+    <td ".$trackcolor[4].">".$id[4]."</td> 
+    <td></td>
+    <td ".$trackcolor[9].">".$id[9]."</td> 
+    <td ".$trackcolor[10]."'>".$id[10]."</td> 
+    <td ".$trackcolor[11].">".$id[11]."</td> 
+    <td></td>
+  </tr>
+  <tr>
+    <td>St1</td>
+    <td></td> 
+    <td></td>
+    <td></td>
+    <td></td> 
+    <td>St2</td>
+    <td></td>
+    <td></td> 
+    <td></td>
+    <td>St3</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td ".$trackcolor[5].">".$id[5]."</td> 
+    <td ".$trackcolor[6]."'>".$id[6]."</td> 
+    <td ".$trackcolor[7].">".$id[7]."</td> 
+    <td ".$trackcolor[8].">".$id[8]."</td> 
+    <td></td>
+    <td ".$trackcolor[12].">".$id[12]."</td> 
+    <td ".$trackcolor[13]."'>".$id[13]."</td> 
+    <td ".$trackcolor[14].">".$id[14]."</td> 
+    <td></td>
+  </tr>
+  ";
+
+?>
+</table>
+ <div class="page-header">
+        <h1>Track Table<br> <small>Database Table</small></h1>
+      </div>
+<div id="result"></div>
+ </div>
 
       <!-- Side Bar -->
 
     <div align="left" class="col-md-4 col-sm-offset-1 blog-sidebar">
-      <div class="form-group has-success has-feedback">
       <div class="page-header">
         <h1>Project Info<br> <small>Our project information</small></h1>
       </div>
@@ -102,8 +162,51 @@ if (mysqli_connect_errno($conn)) {
           but still a well trained operator will make a system works more efficiency due to a safety of working procedure. 
           We can manage to do this by using a Train Operation System Simulator to train and evaluate an operator to make our rail transport be more safety</p>
           <br>
-          <p><b>Keyword</b> : Train Operation System; Simulator; Signaling System; section; track;</p>
+          <p><b>Keyword</b> : Train Operation System; Simulator; Signaling System; section; track;</p><br>
+ 
+ <div class="page-header">
+        <h1>Track Insert<br> <small>add track to database</small></h1>
+      </div>
+<form id="insert" action="update.php" method="post">
+<div class="form-group">
+<label for="track_id">Track ID</label> 
+<input type="text" class="form-control" name="track_id" placeholder="Track ID">
+</div>
+ <div class="form-group">
+    <label for="track_type">Track Type</label>
+    <select class="form-control" name="track_type">
+      <option>Normal</option>
+      <option>Switch</option>
+    </select>
   </div>
+  <div class="form-group">
+    <label for="track_line">Track Line</label>
+    <select class="form-control" name="track_line">
+      <option>A</option>
+      <option>B</option>
+    </select>
+  </div>
+   <div class="form-group">
+    <label for="track_status">Track Status</label>
+    <select class="form-control" name="track_status" placeholder="active">
+      <option value="active">Active</option>
+      <option value="slow">Slow</option>
+      <option value="stop">Stop</option>
+      <option value="broken">Broken</option>
+      <option value="reserveA">Reserve for A</option>
+      <option value="reserveB">Reserve for B</option>
+    </select>
+  </div>
+  <div class="form-group">
+  <label for="maxspd">Track Max Speed</label> 
+  <input type="text" class="form-control" name="maxspd" placeholder="50">
+</div>
+<div class="form-group">
+  <label for="length">Track Length</label> 
+  <input type="text" class="form-control" name="length" placeholder="250">
+</div>
+<button class="btn btn-primary" type="submit" name="save">GO</button>
+</form>
 </div> <!-- /container -->
 
 
@@ -128,6 +231,52 @@ if (mysqli_connect_errno($conn)) {
     });
     </script>
     <script>Clipboard.isSupported()</script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+       function update_table_color () 
+      {
+      $.ajax({
+        url:"update.php", //the page containing php script
+        type: "POST", //request type
+        success:function(result){
+         alert(result);
+       }
+        });
+      }
+    </script>
+
+    <script type="text/javascript">
+
+    $(function worker(){
+    // don't cache ajax or content won't be fresh
+    $.ajaxSetup ({
+        cache: false
+    });
+    var ajax_load = "<img src='http://automobiles.honda.com/images/current-offers/small-loading.gif' alt='loading...' />";
+    
+    // load() functions
+    var loadUrl = "/table.php";
+    
+    $("#result").html(ajax_load).load(loadUrl);
+    setTimeout(worker, 50000);
+
+// end  
+});
+    </script>
+    
   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js" integrity="sha384-tIwI8+qJdZBtYYCKwRkjxBGQVZS3gGozr3CtI+5JF/oL1JmPEHzCEnIKbDbLTCer" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
+
+   <script>
+     // wait for the DOM to be loaded
+     $(function() {
+       // bind 'myForm' and provide a simple callback function
+       $('#insert').ajaxForm(function() {
+           alert("Update Complete!");
+       });
+     });
+   </script>
+    
 
 </body></html>

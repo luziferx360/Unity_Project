@@ -1,8 +1,8 @@
 <?php
-$servername = "mysql.hostinger.in.th";
-$username = "u478022303_gap";
-$password = "741456963";
-$dbname = "u478022303_unity";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "unity";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -15,9 +15,14 @@ echo "MySQL Connected<br>";
 $st = 1;
 
 $sql = "
-	UPDATE train_session ,track 
-	SET track.status = train_session.track_status
-	WHERE session_no=1 AND track.id = 2 ";
+	UPDATE track
+	SET track.color = (SELECT track_color.color 
+                          FROM   track_color 
+                          WHERE  track.status = track_color.status)";
+$sql = "UPDATE track
+SET track.bootstrap = (SELECT color_translate.bootstrap_code 
+                          FROM   color_translate 
+                          WHERE  color_translate.bootstrap_color = track.color)";
 
 if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";
@@ -27,3 +32,19 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ?>
+
+
+
+"Update status color in track"
+
+UPDATE track
+SET track.color = (SELECT track_color.color 
+                          FROM   track_color 
+                          WHERE  track.status = track_color.status) 
+
+"Translate color to bootstrap code"
+
+UPDATE track
+SET track.bootstrap = (SELECT color_translate.bootstrap_code 
+                          FROM   color_translate 
+                          WHERE  color_translate.bootstrap_color = track.color)

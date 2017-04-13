@@ -1,8 +1,8 @@
 <?php
-$servername = "mysql.hostinger.in.th";
-$username = "u478022303_gap";
-$password = "741456963";
-$dbname = "u478022303_unity";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "unity";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

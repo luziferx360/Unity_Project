@@ -1,8 +1,8 @@
 <?php
-$servername = "mysql.hostinger.in.th";
-$username = "u478022303_gap";
-$password = "741456963";
-$dbname = "u478022303_unity";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "unity";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -189,7 +189,7 @@ if (mysqli_connect_errno($conn)) {
         $i++;
     }  
     //Start table
-    echo "<thead><tr><th>ID</th><th>type</th><th>status</th></tr></thead>";
+    echo "<thead><tr><th>ID</th><th>Type</th><th>Track Status</th></tr></thead>";
 
     // Loop through the results from the database
     for ($i = 1; $i <=count($id); $i++) 
@@ -198,9 +198,24 @@ if (mysqli_connect_errno($conn)) {
         echo    
             "<tbody><tr>
             <td>$id[$i]</td>
-            <td>$type[$i]</td>
-            <td>$status[$i]</td>
-            </tr></tbody>";
+            <td>$type[$i]</td>";
+        if ($status[$i] == "red") {
+          echo "<td class='text-danger'>$status[$i]</td>";
+        }
+        else if ($status[$i] == "green") {
+          echo "<td class='text-success'>$status[$i]</td>";
+        }
+        else if ($status[$i] == "black") {
+          echo "<td class='text-muted'>$status[$i]</td>";
+        }
+        else if ($status[$i] == "yellow") {
+          echo "<td class='text-warning'>$status[$i]</td>";
+        }
+        else
+        {
+          echo "<td>$status[$i]</td>";  
+        }
+        echo "</tr></tbody>";
       }
     ?>
  </table> 
@@ -223,7 +238,7 @@ if (mysqli_connect_errno($conn)) {
     echo "<thead><tr><th>ID</th><th>Error</th><th>Information</th></tr></thead>";
 
     // Loop through the results from the database
-    for ($i = 1; $i <count($id); $i++) 
+    for ($i = 1; $i <=count($id); $i++) 
       {
     // Show entries
         echo    
